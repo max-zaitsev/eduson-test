@@ -11,7 +11,7 @@ const {
   data: course,
   status,
   error,
-} = useLazyAsyncData(() => coursesApi.getCourseById(unref(courseId)));
+} = useAsyncData(() => coursesApi.getCourseById(unref(courseId)));
 
 const tryToDelete = async () => {
   try {
@@ -29,6 +29,7 @@ const tryToDelete = async () => {
       ><v-icon icon="mdi-arrow-left" /> Back
     </NuxtLink>
     <CourseDetailsCard
+      :key="course?.id || 0"
       class="details-card"
       @delete="tryToDelete"
       v-if="course"
