@@ -11,7 +11,9 @@ const {
   data: course,
   status,
   error,
-} = useAsyncData(() => coursesApi.getCourseById(unref(courseId)));
+} = useLazyAsyncData(`course-${route.params.id}`, () =>
+  coursesApi.getCourseById(unref(courseId))
+);
 
 const tryToDelete = async () => {
   try {
