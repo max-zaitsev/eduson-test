@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar height="64px">
+  <v-app-bar app density="compact">
     <v-app-bar-title
       ><NuxtLink class="link" to="/">Eduson Courses</NuxtLink></v-app-bar-title
     >

@@ -40,15 +40,14 @@ const tryToDelete = async () => {
 <style scoped lang="scss">
 .back-link {
   display: block;
-  margin-top: 24px;
   text-decoration: none;
   color: inherit;
   margin-bottom: 24px;
   margin-left: 0;
 }
 .container {
-  width: clamp(300px, 80%, 800px);
+  width: clamp(300px, 100%, 800px);
   margin: 0 auto;
-  margin-top: 64px;
+  padding: 24px;
 }
 </style>

@@ -1,8 +1,10 @@
 <template>
   <v-app>
-    <TheHeader />
-    <NuxtLoadingIndicator />
-    <NuxtPage />
+    <TheHeader class="header" />
+    <v-main>
+      <NuxtLoadingIndicator class="indicator" />
+      <NuxtPage class="page" />
+    </v-main>
   </v-app>
 </template>
 

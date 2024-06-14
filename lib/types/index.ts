@@ -23,6 +23,19 @@ type CourseResponse = Omit<Course, "created_at" | "updated_at" | "price"> & {
   price: string;
 };
 
-export { type Course, type CourseLevels, type CourseResponse, courseSchema };
+type CourseCreate = Omit<Course, "id" | "created_at" | "updated_at">;
 
+const courseCreateSchema = courseSchema.omit([
+  "created_at",
+  "updated_at",
+  "id",
+]);
 
+export {
+  type Course,
+  type CourseLevels,
+  type CourseResponse,
+  type CourseCreate,
+  courseSchema,
+  courseCreateSchema,
+};

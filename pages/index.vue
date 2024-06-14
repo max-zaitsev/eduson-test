@@ -26,16 +26,11 @@ const coursesStore = useCoursesStore();
   margin: 0 auto;
 }
 .cards {
-  margin-top: 64px;
   padding: 24px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-
   gap: 24px;
   width: 100%;
-  margin: 64px auto;
-}
-
-.cards__item {
+  margin: 0 auto;
 }
 </style>

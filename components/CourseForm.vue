@@ -1,20 +1,16 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useField, useForm } from "vee-validate";
-import { courseSchema, type Course } from "~/lib/types";
+import {
+  courseCreateSchema,
+  courseSchema,
+  type Course,
+  type CourseCreate,
+} from "~/lib/types";
 
-type CourseInput = Omit<Course, "id" | "created_at" | "updated_at">;
-
-// const courseCreateSchema = courseSchema.omit([
-//   "created_at",
-//   "updated_at",
-//   "id",
-// ]);
-
-const courseCreateSchema = courseSchema.pick(["name", "description"]);
 const props = withDefaults(
   defineProps<{
-    course?: CourseInput;
+    course?: CourseCreate;
   }>(),
   {
     course: () => {
@@ -31,12 +27,6 @@ const props = withDefaults(
   }
 );
 
-const emits = defineEmits(["submit", "reset"]);
-
-const onSubmit = (values: CourseInput) => {
-  emits("submit", values);
-};
-
 const { handleSubmit, handleReset } = useForm({
   validationSchema: courseCreateSchema,
 
@@ -48,10 +38,13 @@ const pictureUrl = useField("picture_url");
 const level = useField("level");
 const items = ref(["Beginner", "Intermediate", "Advanced", "High"]);
 const duration = useField("duration");
-
 const price = useField("price");
 const category = useField("category");
 
+const emits = defineEmits(["submit", "reset"]);
+const onSubmit = (values: CourseCreate) => {
+  emits("submit", values);
+};
 const submit = handleSubmit((values) => {
   onSubmit(values);
 });

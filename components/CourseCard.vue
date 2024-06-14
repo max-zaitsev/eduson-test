@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Course } from "@/lib/types";
-import vuetify from "~/plugins/vuetify";
 
 const props = defineProps<{
   course: Course;
@@ -11,13 +10,9 @@ const priceFomatted = computed(() => toRub(props.course.price));
 
 <template>
   <v-card class="" link height="100%" elevated>
-    <v-img
-      width="100%"
-      cover
-      aspect-ratio="15/8"
-      :alt="course.name"
-      :src="course.picture_url"
-    ></v-img>
+    <div class="img-container">
+      <v-img cover :alt="course.name" :src="course.picture_url"></v-img>
+    </div>
     <v-card-title>{{ course.name }}</v-card-title>
     <v-card-text class="card__description">{{
       course.description
@@ -32,7 +27,9 @@ const priceFomatted = computed(() => toRub(props.course.price));
 </template>
 
 <style scoped lang="scss">
-.card {
+.img-container {
+  width: 100%;
+  aspect-ratio: 15 / 8;
 }
 .card__footer {
   display: flex;

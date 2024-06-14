@@ -31,13 +31,12 @@ const onsubmit = async (values: Course) => {
 <style scoped lang="scss">
 .back-link {
   display: block;
-  margin-top: 94px;
   text-decoration: none;
   color: inherit;
   margin-left: 24px;
 }
 .container {
   width: clamp(300px, 80%, 800px);
-  margin: 0 auto;
+  margin: 24px auto;
 }
 </style>
